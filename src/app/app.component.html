@@ -1,0 +1,56 @@
+<div class="main">
+<h1>Promemoria</h1>
+
+<label for="addItemInput">Che facciamo oggi?</label>
+<br>
+<hr>
+
+<!-- aggiunge un elemento premendo invio, poi pulisce input -->
+<input
+  #newItem
+  placeholder="Aggiungi un elemento"
+  (keyup.enter)="addItem(newItem.value, 'N'); newItem.value = ''" 
+  class="lg-text-input"
+  id="addItemInput"
+/>
+
+<!-- pulisce input dopo aver aggiunto un elemento -->
+<button (click)="addItem(newItem.value, 'N'); newItem.value = ''">Aggiungi</button>
+
+<button (click)="removeAll()">Elimina tutti</button>
+
+<div>
+  <!-- classe bootstrap per visualizzare i btn come menu -->
+  <!-- property binding per far funzionare il filtro -->
+  <button
+    class="btn btn-menu"
+    [class.active]="filter == 'all'"
+    (click)="filter = 'all'">
+    Tutti
+  </button>
+
+  <button
+    class="btn btn-menu"
+    [class.active]="filter == 'active'"
+    (click)="filter = 'active'">
+    Da fare
+  </button>
+
+  <button
+    class="btn btn-menu"
+    [class.active]="filter == 'done'"
+    (click)="filter = 'done'">
+    Fatti
+  </button>
+</div>
+
+<!-- visualizza la dicitura elemento o elementi in base al numero di elementi nell'array -->
+<h2>{{items.length}} <span *ngIf="items.length === 1; else elseBlock">Elemento</span>
+  <ng-template #elseBlock>Elementi</ng-template></h2>
+
+<ul>
+  <li *ngFor="let item of items">
+    <app-item (remove)="remove(item)" [item]="item"></app-item>
+  </li>
+</ul>
+</div>

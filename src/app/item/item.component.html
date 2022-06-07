@@ -1,0 +1,24 @@
+<div class="item">
+
+<div>
+  <input [id]="item.description" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
+  <label [for]="item.description">{{item.description}}</label>
+  <label [for]="item.priorita">{{ item.priorita }}</label>
+</div>
+
+<div class="btn-wrapper" *ngIf="!editable">
+  <button class="btn" (click)="editable = !editable">Modifica</button>
+  <button class="btn btn-warn" (click)="remove.emit()">Elimina</button>
+</div>
+
+<!-- Sezione visibile solo quando si modifica un elemento -->
+<div *ngIf="editable">
+  <input class="sm-text-input" placeholder="modifica elemento" [value]="item.description" #editedItem (keyup.enter)="saveItem(editedItem.value)">
+
+  <div class="btn-wrapper">
+    <button class="btn" (click)="editable = !editable">Annulla</button>
+    <button class="btn btn-save" (click)="saveItem(editedItem.value)">Salva</button>
+  </div>
+</div>
+
+</div>

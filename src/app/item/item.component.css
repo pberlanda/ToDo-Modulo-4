@@ -1,0 +1,7 @@
+.item {
+  padding: 3px;
+}
+div label {
+  display: inline-block;
+  padding: 3px;
+}
