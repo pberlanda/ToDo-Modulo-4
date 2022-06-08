@@ -4,20 +4,22 @@
 <label for="addItemInput">Che facciamo oggi?</label>
 <br>
 <hr>
+<div>
+  <!-- aggiunge un elemento premendo invio, poi pulisce input -->
+  <input
+    #newItem
+    placeholder="Aggiungi un elemento"
+    (keyup.enter)="addItem(newItem.value, 'N'); newItem.value = ''" 
+    class="lg-text-input"
+    id="addItemInput"
+  />
+</div>
 
-<!-- aggiunge un elemento premendo invio, poi pulisce input -->
-<input
-  #newItem
-  placeholder="Aggiungi un elemento"
-  (keyup.enter)="addItem(newItem.value, 'N'); newItem.value = ''" 
-  class="lg-text-input"
-  id="addItemInput"
-/>
-
-<!-- pulisce input dopo aver aggiunto un elemento -->
-<button (click)="addItem(newItem.value, 'N'); newItem.value = ''">Aggiungi</button>
-
-<button (click)="removeAll()">Elimina tutti</button>
+<div class="btn-actions">
+  <!-- pulisce input dopo aver aggiunto un elemento -->
+  <button class="btn-primary" (click)="addItem(newItem.value, 'N'); newItem.value = ''">Aggiungi</button>
+  <button class="btn-primary" (click)="removeAll()">Elimina tutti</button>
+</div>
 
 <div>
   <!-- classe bootstrap per visualizzare i btn come menu -->

@@ -8,8 +8,12 @@ div{
   background-color: #f2f2f2;
   padding-top: 10px;
   width: auto;
+  display: block;
 }
 input {
-  width: auto;
+  width: 100%;
   box-sizing: border-box;
+}
+.btn-actions {
+  display: flex;
 }
