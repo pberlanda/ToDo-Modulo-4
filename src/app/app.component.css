@@ -17,3 +17,10 @@ input {
 .btn-actions {
   display: flex;
 }
+.btn-wrapper {
+  margin-bottom: 2rem;
+  display: flex;
+}
+.btn-menu {
+  flex-basis: 32%;
+}

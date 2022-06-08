@@ -1,11 +1,22 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 .main {
   margin: auto;
+  padding: 5px;
 }
+
 div{
   border-radius: 5px;
   background-color: #f2f2f2;
 }
+
+.btn {
+  color: #000;
+  background-color: #fff;
+  border: 2px solid #cecece;
+  padding: .35rem 1rem .25rem 1rem;
+  font-size: 1rem;
+}
+
 .btn-primary {
   color: #fff;
   background-color: dodgerblue;
@@ -16,4 +27,11 @@ div{
   font-size: 1.3rem;
   border: black solid 2px;
   /*margin: 1rem 1rem 1rem 1rem;*/
+}
+
+.btn-wrapper {
+  /* flexbox */
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
